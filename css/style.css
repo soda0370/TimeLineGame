@@ -1,0 +1,88 @@
+.title{
+    height: 150px;
+    text-align: center;
+    line-height: 20px;
+    }
+/*fabconデザイン設定--------------------------------------------------------*/
+.btn-social-square {
+  display: inline-block;
+  text-decoration: none;
+  width: 50px;
+  margin:2px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 23px;
+  border-radius: 12px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .3s;
+}
+.btn-social-square i {
+  line-height:50px;
+}
+.btn-social-square:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.btn-social-square--twitter {
+  background: #22b8ff;
+}
+.btn-social-square--facebook {
+  background: #6680d8;
+}
+/*難易度選択--------------------------------------------------------*/
+.tab-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tab-label {
+    color: White;
+    background: Gray;
+    margin-right: 5px;
+    padding: 3px 12px;
+    order: -1;
+}
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+    background: mediumpurple;
+}
+.tab-switch:checked+.tab-label {
+     display: block;
+}
+/* ラジオボタン非表示 */
+.tab-switch {
+    display: none;
+}
+
+/*スタート・リタイアボタン--------------------------------------------------------*/
+.pochitto_btn_blue {
+	display: inline-block;
+	width: 100px;
+	padding: 0.3em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background:#0C88CA;
+	border-bottom:4px solid #005691;
+	border-radius: 4px;
+	transition: .0s;
+}
+.pochitto_btn_blue:hover {
+	 cursor: pointer;
+	 text-decoration: none;
+	 background:#005691;
+	 transform: translate3d(0, 4px, 0);
+	 transition: .0s;
+	 border-bottom: none;
+}
+/*list--------------------------------------------------------*/
+ul {
+  list-style-type: none;
+}
+li {
+  cursor: pointer;
+  padding: 10px;
+  border: solid #ddd 1px;
+}
+  
