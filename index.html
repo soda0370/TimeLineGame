@@ -42,13 +42,21 @@
                 <label class="tab-label" for="TAB-03">全範囲</label>
                 <span>{{ picked }}</span>
               </div>
+              <select v-model="column">
+                <option disabled value=3>難易度を選択してね！</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>8</option>
+              </select>
+              <span>並び替え数: {{ column }}</span>              
            </div>
           </div>
           <div class="col-sm-5"></div>
           <div class="col-sm-3">
             <div id="gameCtl">
               <button v-on:click="gameStart" class="pochitto_btn_blue" >スタート</button>
-              <button v-on:click="gameEnd" class="pochitto_btn_blue">リタイア</button>
+              <button v-on:click="gameEnd" class="pochitto_btn_blue">終了</button>
             </div>
           </div>
         </div>
@@ -57,25 +65,34 @@
     
     <div class="container-fluid">
       <div class="row">
-        <!--サイドメニュー画面-->
-        <div class="col-sm-2">
-            <div class="row" style="background:rgb(112, 195, 216);">遊び方</div>
-            <div class="row" style="background:white;">出題年表</div>
-            <div class="row" style="background:rgb(112, 195, 216);">about us</div>
-        </div>
         <!--メインメニュー画面-->
-        <div class="col-sm-10">
+        <div class="col-sm-8 order-md-2">
           <div id="quizlist">
             <template v-if="show">
-              <input type="submit" class="pochitto_btn_blue" value="決定">
+              <div class="row">
+                <button class="pochitto_btn_blue" v-on:click="answerCheck">決定</button>
+                <p v-if="answer === 'good'">　正解です！</p>
+                <p v-else-if="answer === 'bad'">　不正解です！</p>
+                <p v-else>　解けたら決定を押してね！</p>
+              </div>
               <p>古代</p>
-              <draggable tag="ul" :options="{animation:300}">
-                <li v-for="item, index in items" :key="item.no">{{item.name}}-(No.{{item.no}})</li>
+              <draggable v-model="items" tag="ul" :animation="300">
+                <li v-for="item, index in items" :key="item.no" >{{item.name}}</li>
               </draggable>
               <p>近代</p>
             </template>
           </div>
         </div>
+        <!--サイドメニュー左画面-->
+        <div class="col-sm-2 order-md-1">
+            <div class="row" style="background:rgb(112, 195, 216);">遊び方</div>
+            <div class="row" style="background:white;">出題年表</div>
+            <div class="row" style="background:rgb(112, 195, 216);">about us</div>
+        </div>
+        <!--サイドメニュー右画面-->
+        <div class="col-sm-2 order-md-3">
+          <div class="row" style="background:rgb(112, 195, 216);">広告</div>
+      　</div>
       </div>
     </div>
     <!--フッター画面-->
