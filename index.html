@@ -34,11 +34,11 @@
           <div class="col-sm-4">
             <div id="gameMode">  
               <div class="tab-wrap">
-                <input id="TAB-01" type="radio" name="TAB" class="tab-switch" value="日本史モード" v-model="picked"/>
+                <input id="TAB-01" type="radio" name="TAB" class="tab-switch" value="japan" v-model="picked"/>
                 <label class="tab-label" for="TAB-01">日本史</label>
-                <input id="TAB-02" type="radio" name="TAB" class="tab-switch" value="世界史モード" v-model="picked"/>
+                <input id="TAB-02" type="radio" name="TAB" class="tab-switch" value="world" v-model="picked"/>
                 <label class="tab-label" for="TAB-02">世界史</label>
-                <input id="TAB-03" type="radio" name="TAB" class="tab-switch" value ="全範囲モード" v-model="picked" checked="checked"/>
+                <input id="TAB-03" type="radio" name="TAB" class="tab-switch" value ="all" v-model="picked" checked="checked"/>
                 <label class="tab-label" for="TAB-03">全範囲</label>
                 <span>{{ picked }}</span>
               </div>
@@ -77,7 +77,10 @@
               </div>
               <p>古代</p>
               <draggable v-model="items" tag="ul" :animation="300">
-                <li v-for="item, index in items" :key="item.no" >{{item.name}}</li>
+                <li v-for="item, index in items" :key="item.no" >
+                  <div v-if="showAnswer" style=color:red>{{item.age}}年</div>
+                  {{item.name}}
+                </li>
               </draggable>
               <p>近代</p>
             </template>
