@@ -459,7 +459,6 @@ let game = new Vue({
         for (var i=0; i<this.items.length-1;i++){
           if(this.items[i].no > this.items[i+1].no){
             this.answer="bad"
-          }else{
           }
         }
       }
