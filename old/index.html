@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TimeLineGame</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- fontAwesomのCSS読み込み -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+  </head>
+  <body>
+    <header class="title">
+      <h1>Time Line Game</h1>
+      <p>歴史とは 現在との間の尽きることのない 対話 で ある</p>
+      <!--twitter-->
+      <a class="btn-social-square btn-social-square--twitter"><i class="fa fa-twitter fa-inverse"></i></a>
+      <!--facebook-->
+      <a class="btn-social-square btn-social-square--facebook"><i class="fa fa-facebook fa-inverse"></i></a>
+    </header>
+    <header style="background-color:rgb(203, 221, 233)">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-5"></div>
+          <div class="col-sm-3">
+            <div class="tab-wrap">
+              <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">日本史</label>
+              <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">世界史</label>
+              <input id="TAB-03" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-03">全範囲</label>
+          　</div>
+          </div>
+          <div class="col-sm-4">
+            <input type="submit" class="pochitto_btn_blue" value="スタート">
+            <input type="submit" class="pochitto_btn_blue" value="リタイア">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+            <div class="row" style="background:mediumpurple;">遊び方</div>
+            <div class="row" style="background:white;">出題年表</div>
+            <div class="row" style="background:mediumpurple;">about us</div>
+        </div>
+        <div class="col-sm-10" >
+            <div class="container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>年代</th>
+                      <th>出来事</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                        <td>375年</td>
+                        <td>ゲルマン民族大移動</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                        <td>1560年</td>
+                        <td>桶狭間の戦い</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+      </div>
+    </div>
+    <footer style="background-color:gray">Footer</footer>
+  </body>
+</html>
