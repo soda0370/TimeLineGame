@@ -433,6 +433,8 @@ new Vue({
         game.answer="init"
         game.showAnswer=false
         game.show = true
+        game.time=0
+        game.showEndtime=false
       },
       gameEnd : function(event){
         game.show = false
@@ -450,18 +452,29 @@ let game = new Vue({
       answer:"init",
       //初期は非表示
       show:false,
-      showAnswer:false
+      showAnswer:false,
+      showEndtime:false,
+      time:0,
+      endtime:0
     },
     methods:{
       answerCheck :function(event){
         this.showAnswer=true
         this.answer="good"
+        this.endtime=this.time
+        this.showEndtime=true
         for (var i=0; i<this.items.length-1;i++){
           if(this.items[i].no > this.items[i+1].no){
             this.answer="bad"
           }
         }
       }
+    },
+    created: function() {
+      let that = this;
+      this.timer = setInterval(function() {
+        that.time++;
+      }, 1000);
     }
   });
 

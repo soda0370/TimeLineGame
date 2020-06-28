@@ -2,14 +2,15 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="世界史と日本史の年号並び替えゲーム。大学受験の範囲を完全網羅。息抜きに年号クイズ。vue.jsで作成。SPAサイト。">
-    <meta name="keywords" content="世界史,日本史,並び替え,年号,歴史ゲーム,年号ゲーム,受験,大学受験,vue.js">
     <title>TimeLineGame</title>
     <!-- BootstrapのCSS読み込み -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS読み込み -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <!-- fontAwesomのCSS読み込み -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
     <!-- jQuery読み込み -->
     <script src="./lib/jquery-3.5.1.min.js"></script>
     <!-- BootstrapのJS読み込み -->
@@ -21,6 +22,10 @@
     <header class="title">
       <h1>Time Line Game</h1>
       <p>歴史とは 現在との間の尽きることのない対話である</p>
+      <!--twitter-->
+      <a class="btn-social-square btn-social-square--twitter"><i class="fa fa-twitter fa-inverse"></i></a>
+      <!--facebook-->
+      <a class="btn-social-square btn-social-square--facebook"><i class="fa fa-facebook fa-inverse"></i></a>
     </header>
     <!--上部メニュー画面-->
     <header style="background-color:rgb(203, 221, 233)">
@@ -37,7 +42,7 @@
                 <label class="tab-label" for="TAB-03">全範囲</label>
               </div>
               <select v-model="column">
-                <option disabled value=3>難易度選択</option>
+                <option disabled value=3>リスト数を選択してね！</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
@@ -60,19 +65,19 @@
     <div class="container-fluid">
       <div class="row">
         <!--メインメニュー画面-->
-        <div class="col-sm-8 order-md-3">
+        <div class="col-sm-8 order-md-2">
           <div id="quizlist">
             <template v-if="show">
               <div class="row">
-                <button class="pochitto_btn_blue" v-on:click="answerCheck" v-if="!showAnswer">決定</button>          
-                <h4 v-if="answer === 'good'" style=color:blue>　〇正解</h4>
-                <h4 v-else-if="answer === 'bad'" style=color:blue>　×不正解</h4>
-                <h5 v-else>　時代順に並びかえよ！</h5>
-                <h5 style=color:red>　
+                <button class="pochitto_btn_blue" v-on:click="answerCheck">決定</button>
+                <p v-if="answer === 'good'">　正解です！</p>
+                <p v-else-if="answer === 'bad'">　不正解です！</p>
+                <p v-else>　解けたら決定を押してね！</p>
+                <h3 style=color:red>　
                   経過時間：
-                  <span v-if="showEndtime">{{endtime}}秒　</span>
-                  <span v-else="showEndtime">{{time}}秒　</span>
-                </h5>
+                  <span v-if="showEndtime">{{endtime}}秒</span>
+                  <span v-else="showEndtime">{{time}}秒</span>
+                </h3>
               </div>
               <p>古代</p>
               <draggable v-model="items" tag="ul" :animation="300">
@@ -86,26 +91,19 @@
           </div>
         </div>
         <!--サイドメニュー左画面-->
-        <div class="col-sm-3 order-md-1">
-          <div class="row" style="background:rgb(112, 195, 216);">遊び方</div>
-          <p>１．出題範囲と難易度を選択</p>
-          <p>２．ゲームスタート</p>
-          <p>３．ドラッグ操作で並び替え</p>
-          <div class="row" style="background:rgb(112, 195, 216);">出典先</div>
-          <p>歴史データベース｜日本史・世界史 歴史年表：
-            <a href="http://www.toshin.com/rekishi_list/index.php">リンク先</a>
-          </p>
+        <div class="col-sm-2 order-md-1">
+            <div class="row" style="background:rgb(112, 195, 216);">遊び方</div>
+            <div class="row" style="background:white;">出題年表</div>
+            <div class="row" style="background:rgb(112, 195, 216);">about us</div>
         </div>
         <!--サイドメニュー右画面-->
-        <div class="col-sm-1 order-md-3">
-      </div>
-
+        <div class="col-sm-2 order-md-3">
+          <div class="row" style="background:rgb(112, 195, 216);">広告</div>
+      　</div>
       </div>
     </div>
     <!--フッター画面-->
-    <footer style="background-color:gray">
-      made by vue.js
-    </footer>
+    <footer style="background-color:gray">Footer</footer>
   </body>
   <!-- vue.jsモジュール読み込み -->
   <script src="./lib/vue.min.js"></script>
