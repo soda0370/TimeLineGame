@@ -74,14 +74,12 @@
                   <span v-else="showEndtime">{{time}}秒　</span>
                 </h5>
               </div>
-              <p>古代</p>
               <draggable v-model="items" tag="ul" :animation="300">
                 <li v-for="item, index in items" :key="item.no" >
                   <div v-if="showAnswer" style=color:red>{{item.age}}年</div>
                   {{item.name}}
                 </li>
               </draggable>
-              <p>近代</p>
             </template>
           </div>
         </div>
